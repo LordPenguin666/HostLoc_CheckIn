@@ -78,7 +78,11 @@ func main() {
 			bot, err := tgbotapi.NewBotAPI(config.Telegram.Api)
 			text := tgbotapi.NewMessage(intChatId, message)
 			_, err = bot.Send(text)
-			checkErr(err)
+			if err == nil {
+				logger.Info("Telegram 推送通知成功!")
+			} else {
+				checkErr(err)
+			}
 		}
 	}
 }
