@@ -1,0 +1,14 @@
+{
+  "time": 5,
+  "telegram": {
+    "enable": true,
+    "url": "https://api.telegram.org",
+    "api": "",
+    "chat_id": ""
+  },
+  "accounts": [
+    {"username": "第一个帐号名", "password": "密码"},
+    {"username": "第二个帐号名", "password": "密码"},
+    {"username": "cuper", "password": "114514"}
+  ]
+}
