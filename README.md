@@ -3,11 +3,20 @@
 ## 使用方法
 1. 复制配置文件 example.json ``` cp example.json config.json```
 2. 修改配置文文件 ```vim config.json ```
-3. 你也可以通过 ```./hostloc -c /path/to/your/config 指定配置文件路径```
+3. 你也可以通过 ```./hostloc -c /path/to/your/config``` 指定配置文件路径
 
 ## 定时任务
 - example (每日两点执行)
 `0 2 * * * /root/HostLoc_CheckIn/hostloc`
+
+## 多帐号配置
+```json
+"accounts": [
+  {"username": "第一个帐号名", "password": "密码"},
+  {"username": "第二个帐号名", "password": "密码"},
+  {"username": "cuper", "password": "114514"}
+]
+```
 
 ## telegram 推送
 ```json

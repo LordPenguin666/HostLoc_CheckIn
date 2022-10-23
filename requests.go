@@ -20,9 +20,6 @@ type Account struct {
 	Client   resty.Client
 }
 
-type Space struct {
-}
-
 func New(account *Account) (*Account, error) {
 	if account.UserName == "" {
 		return account, errors.New("请输入用户名")
@@ -207,22 +204,4 @@ func (account *Account) AccessSpace(spaceID int) {
 		logger.Error(fmt.Sprintf("用户 [%v] 空间访问失败 [Space UID: %v]", account.UserName, spaceID))
 	}
 
-}
-
-func telegramNotice(message string) {
-	tg := resty.New()
-
-	_, err := tg.R().
-		SetHeaders(map[string]string{
-			"user-agent":   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36",
-			"content-type": "application/x-www-form-urlencoded",
-		}).SetQueryParams(map[string]string{
-		"chat_id": config.Telegram.ChatId,
-		"text":    message,
-	}).Post(fmt.Sprintf("%v/bot%v/sendMessage", config.Telegram.Url, config.Telegram.Api))
-	if err != nil {
-		checkErr(err)
-	} else {
-		logger.Info("Telegram 推送成功")
-	}
 }

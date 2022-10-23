@@ -3,7 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"math/rand"
+	"strconv"
 	"time"
 )
 
@@ -70,7 +72,13 @@ func main() {
 				message = "没有账号进行了签到"
 			}
 			message = "[LOC 签到小助手]\n\n" + message
-			telegramNotice(message)
+			fmt.Println(message)
+			intChatId, err := strconv.ParseInt(config.Telegram.ChatId, 10, 64)
+			checkErr(err)
+			bot, err := tgbotapi.NewBotAPI(config.Telegram.Api)
+			text := tgbotapi.NewMessage(intChatId, message)
+			_, err = bot.Send(text)
+			checkErr(err)
 		}
 	}
 }
