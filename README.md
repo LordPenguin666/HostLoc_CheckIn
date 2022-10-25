@@ -20,11 +20,11 @@ make default
 
 ## 使用方法
 
-1. 复制配置文件 example.json `cp example.json config.json`
-2. 修改配置文文件 `vim config.json`
-3. (可选) 你也可以通过 `./hostloc -c /path/to/your/config` 指定配置文件路径
-4. (可选) 默认在 `/root/HostLoc_CheckIn/` 下运行, 你可以修改目录下的 `run.sh` 脚本
-5. 添加定时任务
+1. 复制配置文件 example.json `cp example.json config.json`；
+2. 修改配置文件 `vim config.json`；
+3. (可选) 你也可以通过 `./hostloc -c /path/to/your/config` 指定配置文件路径；
+4. (可选) 默认在 `/root/HostLoc_CheckIn/` 下运行，你可以修改目录下的 `run.sh` 脚本；
+5. 添加定时任务。
 
 ## 定时任务
 - 需要先安装 cron 有关的软件包
@@ -36,7 +36,7 @@ systemctl enable cron
 systemctl start cron
 ```
 
-### Archlinux
+### Arch Linux
 ```shell
 pacman -S cronie
 
@@ -67,7 +67,7 @@ systemctl start cronie
 ]
 ```
 
-## telegram 推送
+## Telegram 推送
 
 ```json
   "telegram": {
