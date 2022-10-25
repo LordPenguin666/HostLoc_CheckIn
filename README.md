@@ -2,8 +2,17 @@
 
 ## 获取二进制文件
 
-### 编译 (需要拥有 go 环境)
+### 从 Github Release 中下载
+```shell
+# 以 amd64 架构的系统为例
+mkdir HostLoc_CheckIn
+cd HostLoc_CheckIn
+wget https://github.com/LordPenguin666/HostLoc_CheckIn/releases/download/V1.0/hostloc-check-in-linux-amd64.tar.gz
+tar xvf hostloc-check-in-linux-amd64.tar.gz
 ```
+
+### 编译 (需要拥有 go 环境)
+```shell
 cd HostLoc_CheckIn
 make default
 ```
@@ -13,7 +22,7 @@ make default
 1. 复制配置文件 example.json `cp example.json config.json`
 2. 修改配置文文件 `vim config.json`
 3. (可选) 你也可以通过 `./hostloc -c /path/to/your/config` 指定配置文件路径
-4. (可选) 默认在 /root/HostLoc_CheckIn/下运行, 你可以修改目录下的 `run.sh` 脚本
+4. (可选) 默认在 `/root/HostLoc_CheckIn/` 下运行, 你可以修改目录下的 `run.sh` 脚本
 5. 添加定时任务
 
 ## 定时任务
@@ -40,11 +49,16 @@ systemctl start cronie
 ```
 
 * 使用 `crontab -e` 添加定时任务
-* example (每日两点执行) `0 2 * * * /root/HostLoc_CheckIn/run.sh`
+* (每日两点执行) `0 2 * * * /root/HostLoc_CheckIn/run.sh`
+
+## 基础配置
+```json
+  "time": 5,   // 访问空间间隔 (单位 s), 最低为 5s
+```
 
 ## 多帐号配置
 
-```
+```json
 "accounts": [
   {"username": "第一个帐号名", "password": "密码"},
   {"username": "第二个帐号名", "password": "密码"},
@@ -54,10 +68,9 @@ systemctl start cronie
 
 ## telegram 推送
 
-```
+```json
   "telegram": {
-    "enable": true,
-    "url": "https://api.telegram.org",
+    "enable": true,                    // 开启推送
     "api": "这里填写 bot api",
     "chat_id": "这里填写对话 id"
   }

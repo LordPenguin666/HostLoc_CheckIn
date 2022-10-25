@@ -2,7 +2,6 @@
   "time": 5,
   "telegram": {
     "enable": true,
-    "url": "https://api.telegram.org",
     "api": "",
     "chat_id": ""
   },

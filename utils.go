@@ -13,7 +13,6 @@ type Config struct {
 	Time     int `json:"time"`
 	Telegram struct {
 		Enable bool   `json:"enable"`
-		Url    string `json:"url"`
 		Api    string `json:"api"`
 		ChatId string `json:"chat_id"`
 	} `json:"telegram"`
