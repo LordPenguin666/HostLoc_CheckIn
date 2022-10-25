@@ -2,7 +2,7 @@
 
 ## 获取二进制文件
 
-### 从 Github Release 中下载
+### (1) 从 Github Release 中下载
 ```shell
 # 以 amd64 架构的系统为例
 mkdir HostLoc_CheckIn
@@ -11,8 +11,9 @@ wget https://github.com/LordPenguin666/HostLoc_CheckIn/releases/download/V1.0/ho
 tar xvf hostloc-check-in-linux-amd64.tar.gz
 ```
 
-### 编译 (需要拥有 go 环境)
+### (2) 编译 (需要拥有 go 环境)
 ```shell
+git clone https://github.com/LordPenguin666/HostLoc_CheckIn.git
 cd HostLoc_CheckIn
 make default
 ```
