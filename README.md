@@ -24,7 +24,8 @@ make default
 2. 修改配置文件 `vim config.json`；
 3. (可选) 你也可以通过 `./hostloc -c /path/to/your/config` 指定配置文件路径；
 4. (可选) 默认在 `/root/HostLoc_CheckIn/` 下运行，你可以修改目录下的 `run.sh` 脚本；
-5. 添加定时任务。
+5. `chmod +x run.sh`
+6. 添加定时任务。
 
 ## 定时任务
 - 需要先安装 cron 有关的软件包
